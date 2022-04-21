@@ -12,7 +12,7 @@ export default function Categories(){
         <h1> Categories #{page} - {type} </h1>
 
         {
-          page === undefined ? <h1>Select "Try Router"</h1>: <h1>You are on page #{page}</h1>
+          page === undefined ? <h1>Select "Try Router"</h1>: <h1>You are on question #{page}</h1>
         }
 
         <button onClick={
