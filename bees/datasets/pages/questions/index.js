@@ -22,13 +22,21 @@ export default function Questions(){
     q={qs[qnum]}
     />
 
-    <button onClick={
-      ()=>r.push({
-      pathname:"/questions",
-      query:{
-        qnum:Number(qnum)+1
-      }
-    })
-  }>Next</button>
+    {
+      Number(qnum) >= qs.length - 1 &&
+      <button>Finish!</button>
+    }
+
+    {
+      Number(qnum) < qs.length - 1 &&
+      <button onClick={
+        ()=>r.push({
+        pathname:"/questions",
+        query:{
+          qnum:Number(qnum)+1 > qs.length - 1 ? qs.length-1 : Number(qnum)+1
+        }
+      })
+      }>Next</button>
+    }
   </div>
 }
