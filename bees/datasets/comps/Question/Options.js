@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const OpsCont = styled.div`
-
 `;
 
 const OpsTitle = styled.h3`

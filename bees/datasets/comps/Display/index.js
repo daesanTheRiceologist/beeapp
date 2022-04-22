@@ -5,15 +5,26 @@ display:flex;
 `;
 
 const ImgCont = styled.div`
-width:100px;
-height:100px;
+width:50px;
+height:50px;
 `;
 
 const DispImg = styled.div`
 object-fit:cover;
-width:100%;
+width:50%;
 height:100%;
 `;
+
+
+export function MainImg({
+  img="/logo.png"
+}){
+  return <ImgCont>
+    {
+      <img src={img} />
+    }
+  </ImgCont>
+}
 
 export default function Display({
     arr=[]

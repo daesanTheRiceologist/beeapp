@@ -13,6 +13,32 @@ export default function Questions(){
   background-color: #C06817;
   `
 
+  const QNumCont = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size:xx-large;
+  font-family: Helvetica;
+  font-weight:600;
+  text-align: center;
+  background-color: #FF9F0E;
+  height: 10vh;
+  color: white; 
+  `
+
+  const NextButton = styled.button`
+  margin-top: 5vh;
+  background-color: #FF9F0E; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  display: flex;
+  `
+
   var {qnum} = r.query;
   if(qnum === undefined){
     qnum = 1;
@@ -20,9 +46,9 @@ export default function Questions(){
 
   return <div>
     <div>
-      <h3>Hi {nm}</h3>
-      <hr />
-      Question {qnum}
+      <QNumCont>
+        Question {qnum}
+      </QNumCont>
     </div>
     
     <Options
@@ -38,15 +64,14 @@ export default function Questions(){
 
     {
       Number(qnum) < qs.length - 1 &&
-      <button onClick={
+      <NextButton onClick={
         ()=>r.push({
         pathname:"/questions",
         query:{
           qnum:Number(qnum)+1 > qs.length - 1 ? qs.length-1 : Number(qnum)+1
         }
       })
-      }>Next</button>
+      }>Next</NextButton>
     }
-    <ExCont>bruh</ExCont>
   </div>
 }

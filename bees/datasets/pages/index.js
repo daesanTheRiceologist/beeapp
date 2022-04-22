@@ -1,10 +1,28 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css' 
+import styles from '../styles/Home.module.css'
+import { MainImg } from '../comps/Display'
+import Stuff from '../comps/Display/Stuff'
+import {Logo} from '../comps/Display/Stuff' 
+import styled from 'styled-components';
 
 
 import { useRouter } from 'next/router'
 import { ChangeName } from '../data/que_content'
+
+const GetStartedButton = styled.button`
+margin-top: 5vh;
+background-color: #FF9F0E; /* Green */
+border: none;
+color: white;
+padding: 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+cursor: pointer;
+border-radius: 12px;
+`;
 
 export default function Home() {
 
@@ -12,14 +30,16 @@ export default function Home() {
   const r = useRouter();
   return (
     <div className={styles.container}>
+      <Stuff></Stuff>
+      <Logo></Logo>
       <input type='text' placeholder='Type your name here'
       onChange={
         (e)=>ChangeName(e.target.value)
       }
       />
-      <button onClick={
-        ()=>r.push("/questions")
-      }>Go to Questions</button>
+      <GetStartedButton onClick={
+        ()=>r.push("/start")
+      }>Get Started</GetStartedButton>
     </div>
   )
 }

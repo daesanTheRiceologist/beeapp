@@ -1,15 +1,27 @@
+import styled from 'styled-components';
+
+const LogoImg = styled.img`
+display:flex;
+width: 60vw;
+margin-bottom: 5vw;
+
+`;
+
+const Header = styled.h1`
+text-align: center;
+width: 80vw;
+`
+
 export function Logo({
     img = "/logo.png",
 }){
 
-    return <div> 
-        <img src={img} />
-    </div>
+    return <LogoImg src={img} />
 }
 
 export default function Stuff(){
     
-    return <div>
-        <h1>How much do you know about bees?</h1>
-    </div>
+    return <Header>
+        We're CND and we love bees
+    </Header>
 }
