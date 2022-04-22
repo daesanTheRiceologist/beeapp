@@ -1,11 +1,29 @@
 export const header = "Answer these questions!";
 
 export const qs = [
-    "Did you know in a normal colony of bees there are about more than 50,000 active honey bees?",
-    "How many eyes do you think a bee has?",
-    "Are honey bees dying at a high rate?"
-
-
+    {
+        title:""
+    },
+    {
+        title:"In a normal colony of bees, how many active honey bees do you think there are?",
+        ops:["5,000","10,000","50,000","200,000"]
+    },
+    {
+        title:"How many eyes do you think a bee has?",
+        ops:["1","2","5","8"]
+    },
+    {
+        title:"For many flowers do you think a bee has to visit to produce a pound of honey?",
+        ops:["10,000","100,000","500,000","2,000,000"]
+    },
+    {
+        title:"For many flowers do you think a bee has to visit to produce a pound of honey?",
+        ops:["10,000","100,000","500,000","2,000,000"]
+    },
+    {
+        title:"How fast do you think a bee can fly?",
+        ops:["5mph","10mph","20mph","50mph"]
+    }
 ]
 
 var answers = [];

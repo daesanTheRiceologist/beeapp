@@ -1,4 +1,5 @@
 import { GetName, qs } from "../../data/que_content"
+import styled from 'styled-components';
 
 import Options from "../../comps/Question/Options";
 import { useRouter } from "next/router";
@@ -8,18 +9,26 @@ export default function Questions(){
   const nm = GetName();
   const r = useRouter();
 
+  const ExCont = styled.div`
+  background-color: #C06817;
+  `
+
   var {qnum} = r.query;
   if(qnum === undefined){
-    qnum = 0;
+    qnum = 1;
   }
 
   return <div>
-    <h3>Hi {nm}</h3>
-    <hr />
-    Answer some questions
-
+    <div>
+      <h3>Hi {nm}</h3>
+      <hr />
+      Question {qnum}
+    </div>
+    
     <Options
-    q={qs[qnum]}
+    q={qs[qnum].title}
+    arr={qs[qnum].ops}
+    
     />
 
     {
@@ -38,5 +47,6 @@ export default function Questions(){
       })
       }>Next</button>
     }
+    <ExCont>bruh</ExCont>
   </div>
 }
