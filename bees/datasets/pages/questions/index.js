@@ -22,7 +22,18 @@ export default function Questions(){
   text-align: center;
   background-color: #FF9F0E;
   height: 10vh;
-  color: white; 
+  color: white;
+  margin-top: -1vh;
+  `
+
+  const SpacerTop = styled.div`
+  background-color: #FF9F0E;
+  height: 5vh;
+  color: white;
+  `
+  const NextCont = styled.div`
+  display:flex;
+  justify-content: center;
   `
 
   const NextButton = styled.button`
@@ -46,8 +57,10 @@ export default function Questions(){
 
   return <div>
     <div>
+      <SpacerTop />
       <QNumCont>
         Question {qnum}
+        
       </QNumCont>
     </div>
     
@@ -59,19 +72,23 @@ export default function Questions(){
 
     {
       Number(qnum) >= qs.length - 1 &&
-      <button>Finish!</button>
+      <NextCont>
+        <NextButton>Finish!</NextButton>
+      </NextCont>
     }
 
     {
       Number(qnum) < qs.length - 1 &&
-      <NextButton onClick={
-        ()=>r.push({
-        pathname:"/questions",
-        query:{
-          qnum:Number(qnum)+1 > qs.length - 1 ? qs.length-1 : Number(qnum)+1
-        }
-      })
-      }>Next</NextButton>
+      <NextCont>
+        <NextButton onClick={
+          ()=>r.push({
+          pathname:"/questions",
+          query:{
+            qnum:Number(qnum)+1 > qs.length - 1 ? qs.length-1 : Number(qnum)+1
+          }
+        })
+        }>Next</NextButton>
+      </NextCont>
     }
   </div>
 }
