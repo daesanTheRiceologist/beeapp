@@ -27,13 +27,18 @@ width: 70vw;
 text-align: center;
 `
 
+const ScreenCont = styled.div`
+background-image: url("/startScreen.png");
+height:100vh;
+`
+
 export default function Home() {
   
   const nm = GetName();
   const r = useRouter();
   
   return (
-    <div className={styles.container}>
+    <ScreenCont className={styles.container}>
       <h1>Hi {nm}</h1>
       <Header>Let's see how much you know about bees</Header>
       <hr />
@@ -41,6 +46,6 @@ export default function Home() {
       <GetStartedButton onClick={
         ()=>r.push("/questions")
       }>Take the Bee Quiz</GetStartedButton>
-    </div>
+    </ScreenCont>
   )
 }

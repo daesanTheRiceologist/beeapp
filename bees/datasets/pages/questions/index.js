@@ -9,26 +9,22 @@ export default function Questions(){
   const nm = GetName();
   const r = useRouter();
 
-  const ExCont = styled.div`
-  background-color: #C06817;
-  `
-
   const QNumCont = styled.div`
   display: flex;
   justify-content: center;
   font-size:xx-large;
   font-family: Helvetica;
-  font-weight:600;
+  font-weight:530;
   text-align: center;
   background-color: #FF9F0E;
-  height: 10vh;
+  height: 8vh;
   color: white;
   margin-top: -1vh;
   `
 
   const SpacerTop = styled.div`
   background-color: #FF9F0E;
-  height: 5vh;
+  height: 3vh;
   color: white;
   `
   const NextCont = styled.div`
@@ -37,7 +33,7 @@ export default function Questions(){
   `
 
   const NextButton = styled.button`
-  margin-top: 5vh;
+  margin-top: 3vw;
   background-color: #FF9F0E; /* Green */
   border: none;
   color: white;
@@ -49,13 +45,18 @@ export default function Questions(){
   border-radius: 12px;
   display: flex;
   `
+  
+  const ScreenCont = styled.div`
+  background-image: url("/questionScreen.png");
+  height: 100vh;
+  `
 
   var {qnum} = r.query;
   if(qnum === undefined){
     qnum = 1;
   }
 
-  return <div>
+  return <ScreenCont>
     <div>
       <SpacerTop />
       <QNumCont>
@@ -67,13 +68,16 @@ export default function Questions(){
     <Options
     q={qs[qnum].title}
     arr={qs[qnum].ops}
+    beeImg={qs[qnum].img}
     
     />
 
     {
       Number(qnum) >= qs.length - 1 &&
       <NextCont>
-        <NextButton>Finish!</NextButton>
+        <NextButton onClick={
+          ()=>r.push("/questions/results")
+        }>Finish!</NextButton>
       </NextCont>
     }
 
@@ -90,5 +94,5 @@ export default function Questions(){
         }>Next</NextButton>
       </NextCont>
     }
-  </div>
+  </ScreenCont>
 }

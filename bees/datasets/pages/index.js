@@ -24,12 +24,17 @@ cursor: pointer;
 border-radius: 12px;
 `;
 
+const ScreenCont = styled.div`
+background-image: url("/loadingScreen.png");
+height:100vh;
+`
+
 export default function Home() {
 
   
   const r = useRouter();
   return (
-    <div className={styles.container}>
+    <ScreenCont className={styles.container}>
       <Stuff></Stuff>
       <Logo></Logo>
       <input type='text' placeholder='Type your name here'
@@ -40,6 +45,6 @@ export default function Home() {
       <GetStartedButton onClick={
         ()=>r.push("/start")
       }>Get Started</GetStartedButton>
-    </div>
+    </ScreenCont>
   )
 }
