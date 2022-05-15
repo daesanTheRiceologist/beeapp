@@ -33,6 +33,7 @@ export default function Content({
     `
 
     const HeaderCont = styled.div`
+    margin-top: -1vh;
     display: flex;
     justify-content: center;
     font-size:xx-large;
@@ -40,7 +41,7 @@ export default function Content({
     font-weight:530;
     text-align: center;
     background-color: #FF9F0E;
-    height: 8vh;
+    height: 10vh;
     color: white;
     `
 
@@ -66,7 +67,13 @@ export default function Content({
     justify-content: space-evenly;
     `
 
+    const SpacerTop = styled.div`
+    background-color: #FF9F0E;
+    height: 3vh;
+    color: white;
+    `
     return <ScreenCont>
+        <SpacerTop />
         <HeaderCont>
             {Header}
         </HeaderCont>

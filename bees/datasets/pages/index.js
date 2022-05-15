@@ -28,6 +28,15 @@ const ScreenCont = styled.div`
 background-image: url("/loadingScreen.png");
 height:100vh;
 `
+const InputBox = styled.input`
+background-color: white;
+padding-left: 40px;
+font-size: 20px;
+width: 60vw;
+padding-top: 1vh;
+padding-bottom: 1vh;
+border: none;
+`
 
 export default function Home() {
 
@@ -37,7 +46,7 @@ export default function Home() {
     <ScreenCont className={styles.container}>
       <Stuff></Stuff>
       <Logo></Logo>
-      <input type='text' placeholder='Type your name here'
+      <InputBox type='text' placeholder='Enter your name...'
       onChange={
         (e)=>ChangeName(e.target.value)
       }

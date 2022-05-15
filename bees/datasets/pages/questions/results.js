@@ -61,12 +61,36 @@ background-image: url("/results.png");
 height: 100vh;
 `
 
+const an = GetAnswers();
+
+var score = 0;
+
+var ans1 = an[1];
+var ans2 = an[2];
+var ans3 = an[3];
+var ans4 = an[4];
+var ans5 = an[5];
+
+if(ans1==="50,000"){
+    score = score + 1;
+}
+if(ans2==="5"){
+    score = score + 1;
+}
+if(ans3==="2,000,000"){
+    score = score + 1;
+}
+if(ans4==="2"){
+    score = score + 1;
+}
+if(ans5==="20mph"){
+    score = score + 1;
+}
 
 export default function QResults(){
     const nm = GetName();
     const an = GetAnswers();
     const r = useRouter();
-
     return <ScreenCont>
         <Heading1>
             You did Great!
@@ -75,9 +99,9 @@ export default function QResults(){
             Quiz Results
         </Heading2>
             <Score>
-                3/5
+                {score} / 5
             </Score>
-        <Heading2>
+        <Heading2>  
             Let's learn about how we can help save the bees
         </Heading2>
         <NextCont>
