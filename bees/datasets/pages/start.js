@@ -4,7 +4,8 @@ import styles from '../styles/Home.module.css'
 import Stuff from '../comps/Display/Stuff'
 import {Logo} from '../comps/Display/Stuff' 
 import { GetName,qs } from '../data/que_content'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components';
+import { fadeIn, dropDown, slideRight } from '../data/animation';
 
 import { useRouter } from "next/router"; 
 
@@ -20,16 +21,25 @@ display: inline-block;
 font-size: 16px;
 cursor: pointer;
 border-radius: 12px;
+position: relative;
 `;
 
 const Header = styled.h2`
 width: 70vw;
 text-align: center;
+animation: ${slideRight} 2s;
+position: relative;
 `
 
 const ScreenCont = styled.div`
 background-image: url("/startScreen.png");
 height:100vh;
+width: 100vw;
+position: fixed;
+`
+const H1Cont = styled.h1`
+animation: ${fadeIn} 2s;
+position: relative;
 `
 
 export default function Home() {
@@ -39,7 +49,7 @@ export default function Home() {
   
   return (
     <ScreenCont className={styles.container}>
-      <h1>Hi {nm}</h1>
+      <H1Cont>Hi {nm}</H1Cont>
       <Header>Let's see how much you know about bees</Header>
       <hr />
       <Logo></Logo>

@@ -29,6 +29,8 @@ position: relative;
 const ScreenCont = styled.div`
 background-image: url("/loadingScreen.png");
 height:100vh;
+width: 100vw;
+position: fixed;
 `
 const InputBox = styled.input`
 background-color: white;

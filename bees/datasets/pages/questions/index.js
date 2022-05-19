@@ -1,6 +1,6 @@
 import { GetName, qs } from "../../data/que_content"
-import styled from 'styled-components';
-
+import styled, {keyframes} from 'styled-components';
+import { fadeIn, dropDown, slideRight } from '../../data/animation'
 import Options from "../../comps/Question/Options";
 import { useRouter } from "next/router";
 
@@ -20,12 +20,16 @@ export default function Questions(){
   height: 8vh;
   color: white;
   margin-top: -1vh;
+  position: relative;
+  animation: ${dropDown} 1s;
   `
 
   const SpacerTop = styled.div`
   background-color: #FF9F0E;
   height: 3vh;
   color: white;
+  position: relative;
+  animation: ${dropDown} 1s;
   `
   const NextCont = styled.div`
   display:flex;
@@ -44,11 +48,19 @@ export default function Questions(){
   cursor: pointer;
   border-radius: 12px;
   display: flex;
+  animation: ${fadeIn} 1s;
   `
   
   const ScreenCont = styled.div`
-  background-image: url("/questionScreen.png");
-  height: 100vh;
+  background-image: url("/loadingScreen.png");
+  height:100vh;
+  width: 100vw;
+  position: fixed;
+  `
+
+  const SomeDiv = styled.div`
+  animation: ${slideRight} 3s;
+  position: relative;
   `
 
   var {qnum} = r.query;
@@ -65,13 +77,14 @@ export default function Questions(){
       </QNumCont>
     </div>
     
-    <Options
-    q={qs[qnum].title}
-    arr={qs[qnum].ops}
-    beeImg={qs[qnum].img}
-    
-    />
-
+    <SomeDiv>
+      <Options
+      q={qs[qnum].title}
+      arr={qs[qnum].ops}
+      beeImg={qs[qnum].img}
+      
+      />
+    </SomeDiv>
     {
       Number(qnum) >= qs.length - 1 &&
       <NextCont>
