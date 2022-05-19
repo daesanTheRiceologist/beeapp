@@ -89,7 +89,7 @@ export default function Content({
             <BottomButton onClick={
                 ()=>r.push("/questions/importance")
             }
-            >Importance</BottomButton>
+            >!</BottomButton>
             <BottomButton onClick={
                 ()=>r.push("/questions/help")
             }>How to help</BottomButton>
